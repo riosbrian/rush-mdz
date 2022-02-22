@@ -150,15 +150,18 @@ header {
 }
 
 @media only screen and (max-width: 23.5rem) {
-  .header {
-    &__navbar img {
-      width: 12rem;
-    }
+  html {
+    font-size: 10px;
+    .header {
+      &__navbar img {
+        width: 12rem;
+      }
 
-    .cart {
-      .shoppingCart {
-        top: 0%;
-        left: 0%;
+      .cart {
+        .shoppingCart {
+          top: 0%;
+          left: 0%;
+        }
       }
     }
   }

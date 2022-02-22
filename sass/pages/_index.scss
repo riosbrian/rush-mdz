@@ -200,54 +200,58 @@
 }
 
 @media only screen and (max-width: 23.5rem) {
-  .hero {
-    padding-top: 12rem;
-    flex-direction: column;
+  html {
+    font-size: 10px;
 
-    &__text {
-      padding: 1rem;
+    .hero {
+      padding-top: 12rem;
+      flex-direction: column;
 
-      .subtitle {
-        font-size: 1.8rem;
-        letter-spacing: 0.5rem;
+      &__text {
+        padding: 1rem;
+
+        .subtitle {
+          font-size: 1.8rem;
+          letter-spacing: 0.5rem;
+        }
+
+        .title {
+          font-size: 3.5rem;
+        }
+
+        .brandLogo {
+          margin-top: 2rem;
+          width: 15rem;
+        }
       }
 
-      .title {
-        font-size: 3.5rem;
-      }
+      &__img {
+        text-align: center;
+        width: 100%;
+        overflow: hidden;
 
-      .brandLogo {
-        margin-top: 2rem;
-        width: 15rem;
-      }
-    }
-
-    &__img {
-      text-align: center;
-      width: 100%;
-      overflow: hidden;
-
-      img {
-        width: 30rem;
-      }
-    }
-  }
-
-  .simulator {
-    &__links {
-      ul {
-        gap: 3rem;
-        li {
-          text-align: center;
-          a {
-            font-size: 1.4rem;
-          }
+        img {
+          width: 30rem;
         }
       }
     }
 
-    &__container {
-      grid-template-columns: 1fr;
+    .simulator {
+      &__links {
+        ul {
+          gap: 3rem;
+          li {
+            text-align: center;
+            a {
+              font-size: 1.4rem;
+            }
+          }
+        }
+      }
+
+      &__container {
+        grid-template-columns: 1fr;
+      }
     }
   }
 }
