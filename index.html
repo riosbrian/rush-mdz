@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- JQUERY -->
+    <script src="script/jquery-3.6.0.min.js"></script>
+    <title>RUSH | Sportwear</title>
+    <link rel="shortcut icon" href="images/favicon.png" />
+    <!-- SWEET ALERT -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- FONT AWESOME -->
+    <script
+      src="https://kit.fontawesome.com/e725bbbcb1.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="s">
+      <div class="header">
+        <nav class="header__navbar">
+          <img
+            class="headerLogo"
+            src="images/logo-header.png"
+            alt="logo rush"
+          />
+          <ul>
+            <button class="btn--shoppingCart">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+          </ul>
+        </nav>
+        <div class="cart">
+          <div class="shoppingCart">
+            <h3 class="shoppingCart__title">Mi Carrito</h3>
+            <div class="shoppingCart__line"></div>
+            <div class="shoppingCart__items"></div>
+            <h3 class="shoppingCart__total">Total:</h3>
+            <button class="btn--clearCart">Vaciar Carrito</button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="hero">
+      <div class="hero__text">
+        <h3 class="subtitle">#NEW ARRIBALS</h3>
+        <h1 class="title" id="title">VENÍ A CONOCER LO NUEVO DE:</h1>
+        <img src="images/logo-vitnik.png" alt="vitnik logo" class="brandLogo" />
+      </div>
+      <div class="hero__img">
+        <img src="images/woman-home.png" alt="" />
+      </div>
+    </main>
+    <section class="simulator">
+      <div class="simulator__links">
+        <ul>
+          <li class=""><a href="#">PRODUCTOS</a></li>
+          <li class=""><a href="#/giftcard">GIFT CARD</a></li>
+          <li class=""><a href="#/contacto">CONTACTO</a></li>
+        </ul>
+      </div>
+      <div id="app" class="simulator__container"></div>
+    </section>
+    <script src="script/index.js" type="module"></script>
+  </body>
+</html>

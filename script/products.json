@@ -1,0 +1,84 @@
+{
+  "stock": [
+    {
+      "id": 1,
+      "productName": "Zapatillas Kioshy",
+      "price": 5200,
+      "stock": 10,
+      "productImg": "./images/products/p-zapatillas-Kioshi-Fiji.png",
+      "amount": 1
+    },
+    {
+      "id": 2,
+      "productName": "Remera Vitnik",
+      "price": 6000,
+      "stock": 8,
+      "productImg": "./images/products/p-vitnik-remera.png",
+      "amount": 1
+    },
+    {
+      "id": 3,
+      "productName": "Muscolosa Yazuka",
+      "price": 4200,
+      "stock": 5,
+      "productImg": "./images/products/p-yazuka-musculosa.png",
+      "amount": 1
+    },
+    {
+      "id": 4,
+      "productName": "Malla Urban Luxury",
+      "price": 4500,
+      "stock": 7,
+      "productImg": "./images/products/p-urbanLuxury-malla.png",
+      "amount": 1
+    },
+    {
+      "id": 5,
+      "productName": "Conjunto Lady Fit",
+      "price": 8200,
+      "stock": 15,
+      "productImg": "./images/products/p-ladyfit-conjunto.png",
+      "amount": 1
+    },
+    {
+      "id": 6,
+      "productName": "Calza Biker",
+      "price": 5000,
+      "stock": 12,
+      "productImg": "./images/products/p-calzaBiker.png",
+      "amount": 1
+    },
+    {
+      "id": 7,
+      "productName": "Cordones la Cordonería",
+      "price": 3200,
+      "stock": 10,
+      "productImg": "./images/products/p-cordones.png",
+      "amount": 1
+    },
+    {
+      "id": 8,
+      "productName": "Musculosa Vitnik",
+      "price": 5300,
+      "stock": 4,
+      "productImg": "./images/products/p-vitnik-musculosa.png",
+      "amount": 1
+    }
+  ],
+  "cards": [
+    {
+      "id": 111,
+      "productName": "Gift Card",
+      "productImg": "./images/products/p-vitnik-musculosa.png",
+      "price": 0,
+      "amount": 1
+    },
+    {
+      "id": 222,
+      "productName": "CANJEAR GIFT CARD",
+      "productImg": "./images/products/p-cordones.png",
+      "price": 0,
+      "amount": 1
+    }
+  ]
+}
