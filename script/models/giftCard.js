@@ -77,7 +77,7 @@ class GiftCardView {
         const tarjeta = new GiftCard(
           cardId,
           `Gift Card ${price}`,
-          "./images/products/p-cordones.png",
+          "./images/products/p-giftCard.png",
           price,
           1
         );
@@ -97,6 +97,7 @@ class GiftCardView {
     $(".btn--exchangeGiftCard").click((e) => {
       e.preventDefault();
       const getDiscount = JSON.parse(localStorage.getItem("discountCode"));
+      let inputText = document.querySelector("#code");
       const getInput = document.querySelector("#code").value.toLowerCase();
 
       for (const code of getDiscount) {
@@ -111,6 +112,7 @@ class GiftCardView {
           localStorage.setItem("discountCode", JSON.stringify(updateCodes));
         }
       }
+      inputText.value = "";
       cart.totalCart();
     });
   }

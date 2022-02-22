@@ -215,7 +215,7 @@ header {
     /* max-width: 130rem; */
     /* GIFT CARD */ }
     .simulator__container .productItem {
-      border: 1px solid #0cce6b;
+      border: 1px solid rgba(245, 245, 245, 0.95);
       text-align: center;
       padding: 2rem; }
       .simulator__container .productItem__description {
