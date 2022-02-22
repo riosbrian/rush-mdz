@@ -58,7 +58,7 @@ header {
         text-align: center;
         position: absolute;
         padding: 2.4rem;
-        max-width: 50rem;
+        width: 50rem;
 
         &__title {
           font-size: 2rem;
@@ -71,9 +71,6 @@ header {
 
         &__items {
           .item {
-            /* align-items: center;
-            display: flex;
-            justify-content: space-between; */
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             align-items: center;
@@ -101,6 +98,11 @@ header {
                 background: none;
                 border: none;
                 font-size: 1.6rem;
+
+                i {
+                  color: $red;
+                  font-weight: 800;
+                }
               }
 
               .itemAmount {
@@ -136,8 +138,23 @@ header {
 
         .btn--clearCart {
           color: #fff;
+          cursor: pointer;
           background-color: $lightred;
           border: none;
+          border-radius: 0.5rem;
+          height: 4rem;
+          font-size: 2rem;
+          font-weight: 600;
+          margin-top: 2rem;
+          width: 100%;
+        }
+
+        .btn--buy {
+          color: #fff;
+          cursor: pointer;
+          background-color: $green;
+          border: none;
+          border-radius: 0.5rem;
           height: 4rem;
           font-size: 2rem;
           font-weight: 600;
@@ -159,6 +176,8 @@ header {
 
       .cart {
         .shoppingCart {
+          background-color: #fff;
+          width: 100%;
           top: 0%;
           left: 0%;
         }

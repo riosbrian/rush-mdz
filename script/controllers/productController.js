@@ -4,10 +4,6 @@ class ProductController {
     this.productView = productView;
   }
 
-  gift(app) {
-    this.productView.giftCard(app);
-  }
-
   list(app, cart) {
     this.productView.listProducts(app, this.productModel.products, cart);
   }

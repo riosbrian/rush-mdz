@@ -5,7 +5,7 @@ class GiftCardController {
   }
 
   list(app, cart) {
-    this.giftCardView.listGiftCards(app, this.giftCardModel.tarjetas, cart);
+    this.giftCardView.listGiftCards(app, cart);
   }
 }
 

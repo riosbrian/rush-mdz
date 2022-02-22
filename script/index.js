@@ -30,39 +30,73 @@ const getProducts = async () => {
 
 getProducts();
 
-const getCards = async () => {
-  try {
-    const res = await fetch("script/products.json");
-    const data = await res.json();
-    const toLocalStorage = JSON.stringify(data.cards);
-    localStorage.setItem("cards", toLocalStorage);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-getCards();
-
 $(document).ready(function () {
-  document.location.href = "#";
+  /* document.location.href = "#"; */
   cart.printCart();
   cart.totalCart();
 
+  /* mostrar carrito */
+  $(".btn--shoppingCart").click(function (e) {
+    e.preventDefault();
+    $(".shoppingCart").toggle();
+  });
+
+  /* vaciar carrito */
   $(".btn--clearCart").click((e) => {
     e.preventDefault();
     cart.emptyCart();
     cart.printCart();
     cart.totalCart();
   });
+
+  /* comprar */
+  $(".btn--buy").click((e) => {
+    e.preventDefault();
+
+    const cartItems = JSON.parse(localStorage.getItem("itemsCart")) || [];
+    const giftCode = JSON.parse(localStorage.getItem("codes"));
+
+    if (cartItems.length >= 1) {
+      let discountArray = [];
+      let codes = "";
+      let cont = 1;
+      if (giftCode) {
+        for (const i of giftCode) {
+          codes += `código ${cont}: ${i.code} `;
+          discountArray.push(i);
+          localStorage.setItem("discountCode", JSON.stringify(discountArray));
+        }
+        cont++;
+        swal(
+          "¡Te lo mereces!",
+          `Gracias por comprar en RUSH SPORTWEAR
+           Estos son tus codigos de gift Card: ${codes}`,
+          "success"
+        );
+        localStorage.removeItem("codes");
+      } else {
+        swal(
+          "¡Te lo mereces!",
+          "Gracias por comprar en RUSH SPORTWEAR",
+          "success"
+        );
+        localStorage.removeItem("discount");
+      }
+    } else {
+      swal("", "Agrega algo al carrito!", "error");
+    }
+
+    cart.emptyCart();
+    cart.totalCart();
+    cart.printCart();
+  });
 });
-/* OBTENER PRODUCTOS DEL LOCALSTORAGE PARA PINTAR EL CARRITO */
 
 /* DEFINIR RUTAS */
 
 const routes = [
   { path: "/", action: "productos" },
   { path: "/giftcard", action: "giftcard" },
-  { path: "/contacto", action: "contacto" },
 ];
 
 const parseLocation = () => location.hash.slice(1).toLowerCase() || "/";
@@ -81,9 +115,6 @@ const router = () => {
     case "giftcard":
       giftCard.list("#app", cart);
       break;
-    case "contacto":
-      app.list("#app", cart);
-      break;
     default:
       console.log("error");
   }
@@ -96,9 +127,4 @@ $(window).on("load", function () {
 $(window).on("hashchange", function (e) {
   console.log("hash change");
   router();
-});
-
-$(".btn--shoppingCart").click(function (e) {
-  e.preventDefault();
-  $(".shoppingCart").toggle();
 });

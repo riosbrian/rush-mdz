@@ -58,9 +58,9 @@ class ShoppingCart {
                         <img class="item__img" src=${item.productImg} alt=""/>
                         <h4 class="item__description">${item.productName}</h4>
                         <div class="item__amount">
-                          <button id=${item.id} class="btnAmount btn--rest">-</button>
+                          <button id=${item.id} class="btnAmount btn--rest"><i class="fa-solid fa-angle-left"></i></button>
                           <p class="itemAmount itemAmount--${item.id}">${item.amount}</p>
-                          <button id=${item.id} class="btnAmount btn--sum">+</button>
+                          <button id=${item.id} class="btnAmount btn--sum"><i class="fa-solid fa-angle-right"></i></button>
                         </div>
                         <p class="item__price">+${item.price}</p>
                         <button id=${item.id} class="btn--deleteItem">
@@ -75,7 +75,7 @@ class ShoppingCart {
 
     /* AUMENTAR ITEMS DEL CARRITO */
     $(".btn--sum").click((e) => {
-      let itemID = e.target.getAttribute("id");
+      let itemID = e.target.parentNode.getAttribute("id");
       const getItem = document.querySelector(`.itemAmount--${itemID}`);
 
       const getAmount = JSON.parse(localStorage.getItem("itemsCart"));
@@ -102,7 +102,7 @@ class ShoppingCart {
 
     /* DISMINUIR ITEMS DEL CARRITO */
     $(".btn--rest").click((e) => {
-      let itemID = e.target.getAttribute("id");
+      let itemID = e.target.parentNode.getAttribute("id");
       const getItem = document.querySelector(`.itemAmount--${itemID}`);
 
       const getAmount = JSON.parse(localStorage.getItem("itemsCart"));
@@ -113,7 +113,7 @@ class ShoppingCart {
           i.amount = i.amount - 1;
           if (i.amount == 0) {
             getAmount.splice(cont, 1);
-            e.target.parentNode.parentNode.remove();
+            e.target.parentNode.parentNode.parentNode.remove();
             localStorage.setItem("itemsCart", JSON.stringify(getAmount));
             this.totalCart();
           } else {
@@ -153,7 +153,7 @@ class ShoppingCart {
   /* CALCULAR EL TOTAL DEL CARRITO */
   totalCart() {
     const array = this.getProductsToLS();
-    let discount = JSON.parse(localStorage.getItem("discount")) || 0;
+    let discount = JSON.parse(localStorage.getItem("discount"));
 
     let sum = 0;
 
@@ -161,18 +161,22 @@ class ShoppingCart {
       sum = sum + i.price * i.amount;
     }
 
-    if (sum == 0) {
-      sum = -discount;
-      /* localStorage.removeItem("discount"); */
+    if (array.length == 0 && !discount) {
+      sum = 0;
     } else {
-      sum = sum - discount;
-
-      if (discount - sum <= 0) {
-        localStorage.removeItem("discount");
+      if (sum == 0) {
+        sum = -discount;
+        /* localStorage.removeItem("discount"); */
       } else {
-        const rest = -0 - sum;
-        localStorage.getItem("discount", JSON.stringify(rest));
-        console.log(rest);
+        sum = sum - discount;
+
+        if (discount - sum <= 0) {
+          localStorage.removeItem("discount");
+        } else {
+          const rest = -0 - sum;
+          localStorage.getItem("discount", JSON.stringify(rest));
+          console.log(rest);
+        }
       }
     }
 

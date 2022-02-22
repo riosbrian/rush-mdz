@@ -21,19 +21,7 @@ class GiftCard {
 }
 
 class GiftCardModel {
-  constructor() {
-    const getProducts = JSON.parse(localStorage.getItem("cards")) || [];
-    this.tarjetas = getProducts.map(
-      (card) =>
-        new GiftCard(
-          card.id,
-          card.productName,
-          card.productImg,
-          card.price,
-          card.amount
-        )
-    );
-  }
+  constructor() {}
 
   printCards() {
     console.table(this.tarjetas);
@@ -41,37 +29,25 @@ class GiftCardModel {
 }
 
 class GiftCardView {
-  listGiftCards(app, data, cart) {
-    let htmlContent = "";
-
-    let cardContent = "";
-    for (const i of data) {
-      if (i.id == 111) {
-        cardContent = `<article id=${i.id} class="buyGiftCard">
+  listGiftCards(app, cart) {
+    let cardContent = `<article class="buyGiftCard">
                             <h3 class="buyGiftCard__title">COMPRE UNA GIFT CARD</h3>
                             <p class="buyGiftCard__text">Si no sabe que regalar esta es su mejor opción, regale una gift card desde $5000 pesos.</p>
                             <div class="buyGiftCard__input">
                               <input id="input" type="text" placeholder="$ Ingrese el monto"></input>
-                              <button id=${i.id} class="btn--buyGiftCard">COMPRAR</button>
+                              <button class="btn--buyGiftCard">COMPRAR</button>
                             </div>
-                           </article>`;
-      }
-
-      if (i.id == 222) {
-        cardContent = `<article id=${i.id} class="exchangeGiftCard">
+                           </article>
+                           <article class="exchangeGiftCard">
                             <h3 class="exchangeGiftCard__title">CANJEAR UNA GIFT CARD</h3>
                             <p class="exchangeGiftCard__text">Si ya tenés un código ingresalo, el valor de la gift card se verá reflejado en el total de tu compra.</p>
                             <div class="exchangeGiftCard__input">
                               <input id="code" type="text" placeholder="Ingrese el código"></input>
-                              <button id=${i.id} class="btn--exchangeGiftCard">CANJEAR</button>
+                              <button class="btn--exchangeGiftCard">CANJEAR</button>
                             </div>
                            </article>`;
-      }
 
-      htmlContent += cardContent;
-    }
-
-    document.querySelector(app).innerHTML = htmlContent;
+    document.querySelector(app).innerHTML = cardContent;
 
     $(".btn--buyGiftCard").click((e) => {
       e.preventDefault();
@@ -120,7 +96,7 @@ class GiftCardView {
 
     $(".btn--exchangeGiftCard").click((e) => {
       e.preventDefault();
-      const getDiscount = JSON.parse(localStorage.getItem("codes"));
+      const getDiscount = JSON.parse(localStorage.getItem("discountCode"));
       const getInput = document.querySelector("#code").value.toLowerCase();
 
       for (const code of getDiscount) {
@@ -132,7 +108,7 @@ class GiftCardView {
           const updateCodes = getDiscount.filter(
             (item) => item.code != getInput
           );
-          localStorage.setItem("codes", JSON.stringify(updateCodes));
+          localStorage.setItem("discountCode", JSON.stringify(updateCodes));
         }
       }
       cart.totalCart();

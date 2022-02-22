@@ -62,10 +62,6 @@ class ProductView {
     });
   }
 
-  giftCard(app) {
-    const hola = `<img src="./images/1.png" alt="">`;
-    document.querySelector(app).innerHTML = hola;
-  }
 }
 
 export { Product };
