@@ -74,6 +74,7 @@
     justify-content: center;
     gap: 2rem;
     padding-top: 6.4rem;
+    /* max-width: 130rem; */
 
     .productItem {
       border: 1px solid $green;
@@ -251,6 +252,15 @@
 
       &__container {
         grid-template-columns: 1fr;
+
+        .buyGiftCard {
+          width: 35rem;
+          grid-column: 1 / 6;
+        }
+        .exchangeGiftCard {
+          grid-column: 1 / 6;
+          width: 35rem;
+        }
       }
     }
   }

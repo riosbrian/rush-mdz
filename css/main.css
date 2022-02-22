@@ -113,12 +113,14 @@ header {
           margin-top: 2rem;
           width: 100%; }
 
-@media only screen and (max-width: 23.5rem) {
-  .header__navbar img {
-    width: 12rem; }
-  .header .cart .shoppingCart {
-    top: 0%;
-    left: 0%; } }
+@media only screen and (max-width: 37.4rem) {
+  html {
+    font-size: 10px; }
+    html .header__navbar img {
+      width: 12rem; }
+    html .header .cart .shoppingCart {
+      top: 0%;
+      left: 0%; } }
 
 .hero {
   align-items: center;
@@ -172,6 +174,7 @@ header {
     justify-content: center;
     gap: 2rem;
     padding-top: 6.4rem;
+    /* max-width: 130rem; */
     /* GIFT CARD */ }
     .simulator__container .productItem {
       border: 1px solid #0cce6b;
@@ -262,31 +265,39 @@ header {
           height: 3rem;
           width: 12rem; }
 
-@media only screen and (max-width: 23.5rem) {
-  .hero {
-    padding-top: 12rem;
-    flex-direction: column; }
-    .hero__text {
-      padding: 1rem; }
-      .hero__text .subtitle {
-        font-size: 1.8rem;
-        letter-spacing: 0.5rem; }
-      .hero__text .title {
-        font-size: 3.5rem; }
-      .hero__text .brandLogo {
-        margin-top: 2rem;
-        width: 15rem; }
-    .hero__img {
-      text-align: center;
-      width: 100%;
-      overflow: hidden; }
-      .hero__img img {
-        width: 30rem; }
-  .simulator__links ul {
-    gap: 3rem; }
-    .simulator__links ul li {
-      text-align: center; }
-      .simulator__links ul li a {
-        font-size: 1.4rem; }
-  .simulator__container {
-    grid-template-columns: 1fr; } }
+@media only screen and (max-width: 37.4rem) {
+  html {
+    font-size: 10px; }
+    html .hero {
+      padding-top: 12rem;
+      flex-direction: column; }
+      html .hero__text {
+        padding: 1rem; }
+        html .hero__text .subtitle {
+          font-size: 1.8rem;
+          letter-spacing: 0.5rem; }
+        html .hero__text .title {
+          font-size: 3.5rem; }
+        html .hero__text .brandLogo {
+          margin-top: 2rem;
+          width: 15rem; }
+      html .hero__img {
+        text-align: center;
+        width: 100%;
+        overflow: hidden; }
+        html .hero__img img {
+          width: 30rem; }
+    html .simulator__links ul {
+      gap: 3rem; }
+      html .simulator__links ul li {
+        text-align: center; }
+        html .simulator__links ul li a {
+          font-size: 1.4rem; }
+    html .simulator__container {
+      grid-template-columns: 1fr; }
+      html .simulator__container .buyGiftCard {
+        width: 35rem;
+        grid-column: 1 / 6; }
+      html .simulator__container .exchangeGiftCard {
+        grid-column: 1 / 6;
+        width: 35rem; } }

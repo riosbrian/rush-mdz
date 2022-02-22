@@ -102,8 +102,3 @@ $(".btn--shoppingCart").click(function (e) {
   e.preventDefault();
   $(".shoppingCart").toggle();
 });
-
-const btnBorrar = document.querySelector("#borrar");
-btnBorrar.addEventListener("click", () => {
-  cart.deleteToCart(1);
-});
